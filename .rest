@@ -21,3 +21,27 @@ content-type: application/json
 
 ###
 DELETE http://localhost:3000/workouts/63dc10e2c15c66c0fa507827 HTTP/1.1
+
+###
+GET https://fitness-05k7.onrender.com/workouts
+
+###
+GET https://fitness-05k7.onrender.com/workouts/63dc10e2c15c66c0fa507827
+###
+POST https://fitness-05k7.onrender.com/workouts HTTP/1.1
+content-type: application/json
+
+{
+"name": "curl","muscle": "bicep","timeToComplete": "10min","sets": "12","reps": "12"
+}
+
+###
+PUT https://fitness-05k7.onrender.com/workouts/63dc10e2c15c66c0fa507827 HTTP/1.1
+content-type: application/json
+
+{
+"name": "skullCrushers","muscle": "tricep","timeToComplete": "10-15min","sets": "3","reps": "10"
+}
+
+###
+DELETE https://fitness-05k7.onrender.com/workouts/63dc10e2c15c66c0fa507827 HTTP/1.1
