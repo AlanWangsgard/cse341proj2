@@ -1,0 +1,23 @@
+###
+GET http://localhost:3000/workouts
+
+###
+GET http://localhost:3000/workouts/63dc10e2c15c66c0fa507827
+###
+POST http://localhost:3000/workouts HTTP/1.1
+content-type: application/json
+
+{
+"name": "bench press","muscle": "chest","timeToComplete": "10-15min","sets": "4","reps": "8"
+}
+
+###
+PUT http://localhost:3000/workouts/63dc10e2c15c66c0fa507827 HTTP/1.1
+content-type: application/json
+
+{
+"name": "skullCrushers","muscle": "tricep","timeToComplete": "10-15min","sets": "3","reps": "10"
+}
+
+###
+DELETE http://localhost:3000/workouts/63dc10e2c15c66c0fa507827 HTTP/1.1
