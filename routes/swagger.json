@@ -5,7 +5,7 @@
     "description": "Description",
     "version": "1.0.0"
   },
-  "host": "fitness.onrender.com/workouts",
+  "host": "fitness-05k7.onrender.com/workouts",
   "basePath": "/",
   "schemes": [
     "https"

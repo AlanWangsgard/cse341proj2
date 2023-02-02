@@ -8,7 +8,7 @@ POST http://localhost:3000/workouts HTTP/1.1
 content-type: application/json
 
 {
-"name": "bench press","muscle": "chest","timeToComplete": "10-15min","sets": "4","reps": "8"
+"name": "curl","muscle": "bicep","timeToComplete": "10min","sets": "12","reps": "12"
 }
 
 ###
