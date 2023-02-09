@@ -1,5 +1,6 @@
 const mongodb = require("../databases/connect")
 const ObjectId = require("mongodb").ObjectId
+const {validationResult} = require("express-validator")
 
 const getAll = async (req, res) => {
 	const result = await mongodb.getDb().db().collection("workouts").find()
@@ -23,6 +24,10 @@ const getSingle = async (req, res) => {
 }
 
 const addWorkout =async(req, res) =>{
+	const errors = validationResult(req)
+	if (!errors.isEmpty()) {
+		return res.status(400).json({ errors: errors.array() });
+	  }
 	const workout = {
 		name: req.body.name,
 		muscle: req.body.muscle,
@@ -39,6 +44,10 @@ const addWorkout =async(req, res) =>{
 	};
 
 const updateWorkout =async(req, res) =>{
+	const errors = validationResult(req)
+	if (!errors.isEmpty()) {
+		return res.status(400).json({ errors: errors.array() });
+	  }
 	const userId = new ObjectId(req.params.id);
 	const workout = {
 		name: req.body.name,

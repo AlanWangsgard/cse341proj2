@@ -1,5 +1,6 @@
 const routes = require("express").Router()
 const controller = require("../controllers/workouts")
+const {workoutValidation} = require("../validator/validate")
 
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
@@ -11,9 +12,9 @@ routes.get("/", controller.getAll)
 
 routes.get("/:id", controller.getSingle)
 
-routes.post("/", controller.addWorkout)
+routes.post("/", workoutValidation, controller.addWorkout)
 
-routes.put("/:id", controller.updateWorkout)
+routes.put("/:id", workoutValidation, controller.updateWorkout)
 
 routes.delete("/:id", controller.deleteWorkout)
 
