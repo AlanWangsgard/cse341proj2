@@ -8,7 +8,7 @@ POST http://localhost:3000/workouts HTTP/1.1
 content-type: application/json
 
 {
-"name": "curl","muscle": "bicep","timeToComplete": "10min","sets": "12","reps": "12"
+"name": "","muscle": "bicep","timeToComplete": "10min","sets": "12","reps": "12"
 }
 
 ###
@@ -16,7 +16,7 @@ PUT http://localhost:3000/workouts/63dc10e2c15c66c0fa507827 HTTP/1.1
 content-type: application/json
 
 {
-"name": "skullCrushers","muscle": "tricep","timeToComplete": "10-15min","sets": "3","reps": "10"
+"name": "","muscle": "tricep","timeToComplete": "10-15min","sets": "3","reps": "10"
 }
 
 ###
