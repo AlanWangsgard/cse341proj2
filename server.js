@@ -9,6 +9,11 @@ const mongodb = require("./databases/connect")
 app.use("/", require("./routes"))
 app.use(bodyparser.json())
 app.use("/workouts", require("./routes/workouts"))
+app.use("/auth", require("./routes/auth"))
+
+app.get('/', (req, res) => {
+	res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
+  });
 
 mongodb.initDb((err, mongodb) => {
 	if (err) {
@@ -18,3 +23,4 @@ mongodb.initDb((err, mongodb) => {
 		console.log(`Connected to DB and listening on ${port}`)
 	}
 })
+
