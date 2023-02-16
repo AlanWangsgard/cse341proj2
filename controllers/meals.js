@@ -3,7 +3,7 @@ const ObjectId = require("mongodb").ObjectId
 const {validationResult} = require("express-validator")
 
 const getAll = async (req, res) => {
-	const result = await mongodb.getDb().db().collection("workouts").find()
+	const result = await mongodb.getDb().db().collection("meals").find()
 	result.toArray().then((lists) => {
 		res.setHeader("Content-Type", "application/json")
 		res.status(200).json(lists)
@@ -15,7 +15,7 @@ const getSingle = async (req, res) => {
 	const result = await mongodb
 		.getDb()
 		.db()
-		.collection("workouts")
+		.collection("meals")
 		.find({ _id: userId })
 	result.toArray().then((lists) => {
 		res.setHeader("Content-Type", "application/json")
@@ -23,21 +23,18 @@ const getSingle = async (req, res) => {
 	})
 }
 
-const addWorkout =async(req, res) =>{
+const addMeal =async(req, res) =>{
 	const errors = validationResult(req)
 	if (!errors.isEmpty()) {
 		return res.status(400).json({ errors: errors.array() });
 	  }
-	  const workout = {
+	const meal = {
 		name: req.body.name,
-		primaryMuscle: req.body.primaryMuscle,
-		secondaryMuscle: req.body.secondaryMuscle,
-		timeToComplete: req.body.timeToComplete,
-		sets: req.body.sets,
-		reps: req.body.reps,
-		equipment: req.body.equipment
+		calories: req.body.calories,
+		timeToMake: req.body.timeToMake,
+		size: req.body.size,
 	  };
-	  const response = await mongodb.getDb().db().collection('workouts').insertOne(workout);
+	  const response = await mongodb.getDb().db().collection('meals').insertOne(meal);
 	  if (response.acknowledged) {
 		res.status(201).json(response);
 	  } else {
@@ -45,26 +42,23 @@ const addWorkout =async(req, res) =>{
 	  }
 	};
 
-const updateWorkout =async(req, res) =>{
+const updateMeal =async(req, res) =>{
 	const errors = validationResult(req)
 	if (!errors.isEmpty()) {
 		return res.status(400).json({ errors: errors.array() });
 	  }
 	const userId = new ObjectId(req.params.id);
-	const workout = {
+	const meal = {
 		name: req.body.name,
-		primaryMuscle: req.body.primaryMuscle,
-		secondaryMuscle: req.body.secondaryMuscle,
-		timeToComplete: req.body.timeToComplete,
-		sets: req.body.sets,
-		reps: req.body.reps,
-		equipment: req.body.equipment
+		calories: req.body.calories,
+		timeToMake: req.body.timeToMake,
+		size: req.body.size,
 	  };
 	const response = await mongodb
 	  .getDb()
 	  .db()
-	  .collection('workouts')
-	  .replaceOne({ _id: userId }, workout);
+	  .collection('meals')
+	  .replaceOne({ _id: userId }, meal);
 	console.log(response);
 	if (response.modifiedCount > 0) {
 	  res.status(204).send();
@@ -73,9 +67,9 @@ const updateWorkout =async(req, res) =>{
 	}
   };
 
-const deleteWorkout =async(req, res) => {
+const deleteMeal =async(req, res) => {
 	const userId = new ObjectId(req.params.id);
-	const response = await mongodb.getDb().db().collection('workouts').remove({ _id: userId }, true);
+	const response = await mongodb.getDb().db().collection('meals').remove({ _id: userId }, true);
 	console.log(response);
 	if (response.deletedCount > 0) {
 	  res.status(200).send();
@@ -85,4 +79,4 @@ const deleteWorkout =async(req, res) => {
   };
 
 
-module.exports = {getAll, getSingle, addWorkout, deleteWorkout, updateWorkout}
+module.exports = {getAll, getSingle, addMeal, deleteMeal, updateMeal}
