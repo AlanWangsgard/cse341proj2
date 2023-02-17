@@ -16,10 +16,10 @@ const config = {
 	issuerBaseURL: process.env.issuerBaseURL
   };
 
+app.use(auth(config));
 app.use("/", require("./routes"))
 app.use(bodyparser.json())
 app.use("/workouts", require("./routes/workouts"))
-app.use(auth(config));
 app.use("/auth", require("./routes/auth"))
 
 
