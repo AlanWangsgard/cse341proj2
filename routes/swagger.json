@@ -5,13 +5,13 @@
     "description": "Description",
     "version": "1.0.0"
   },
-  "host": "fitness-05k7.onrender.com/workouts",
+  "host": "fitness-05k7.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
   ],
   "paths": {
-    "/meals": {
+    "/meals/": {
       "get": {
         "description": "",
         "produces": [
@@ -145,7 +145,7 @@
         }
       }
     },
-    "/": {
+    "/workouts/": {
       "get": {
         "description": "",
         "produces": [
@@ -205,7 +205,7 @@
         }
       }
     },
-    "/{id}": {
+    "/workouts/{id}": {
       "get": {
         "description": "",
         "produces": [

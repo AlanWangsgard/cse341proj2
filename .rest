@@ -61,3 +61,17 @@ content-type: application/json
 
 ###
 DELETE https://fitness-05k7.onrender.com/workouts/63dc10e2c15c66c0fa507827 HTTP/1.1
+
+###
+POST http://localhost:3000/meals/meals HTTP/1.1
+content-type: application/json
+
+{
+  "name": "Cheeseburger",
+  "calories": "500",
+  "timeToMake": "15min",
+  "size": "medium"
+}
+
+###
+GET http://localhost:3000/meals/meals
