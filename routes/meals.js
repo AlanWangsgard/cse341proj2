@@ -1,21 +1,21 @@
 const routes = require("express").Router()
-const controller = require("../controllers/workouts")
+const controller = require("../controllers/meals")
 const {workoutValidation} = require("../validator/validate")
 
-const swaggerUi = require('swagger-ui-express');
-const swaggerDocument = require('./swagger.json');
+// const swaggerUi = require('swagger-ui-express');
+// const swaggerDocument = require('./swagger.json');
 
-routes.use('/api-docs', swaggerUi.serve);
-routes.get('/api-docs', swaggerUi.setup(swaggerDocument));
+// routes.use('/api-docs', swaggerUi.serve);
+// routes.get('/api-docs', swaggerUi.setup(swaggerDocument));
 
-routes.get("/", controller.getAll)
+routes.get("/meals", controller.getAll)
 
-routes.get("/:id", controller.getSingle)
+routes.get("/meals/:id", controller.getSingle)
 
-routes.post("/", workoutValidation, controller.addWorkout)
+routes.post("/meals", workoutValidation, controller.addMeal)
 
-routes.put("/:id", workoutValidation, controller.updateWorkout)
+routes.put("/meals/:id", workoutValidation, controller.updateMeal)
 
-routes.delete("/:id", controller.deleteWorkout)
+routes.delete("/meals/:id", controller.deleteMeal)
 
 module.exports = routes
