@@ -11,7 +11,7 @@ const config = {
 	authRequired: false,
 	auth0Logout: true,
 	secret: process.env.secret,
-	baseURL: 'http://localhost:3000',
+	baseURL: 'https://fitness-05k7.onrender.com',
 	clientID: process.env.clientID,
 	issuerBaseURL: process.env.issuerBaseURL
   };
