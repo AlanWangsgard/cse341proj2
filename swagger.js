@@ -9,7 +9,9 @@ const doc = {
   schemes: ['https'],
 };
 
-const outputFile = 'routes/swagger.json';
-const endpointsFiles = ['./routes/meals.js', './routes/workouts.js'];
+const outputFile = 'routes/swagger2.json';
+const endpointsFiles = ['server.js'];
 
-swaggerAutogen(outputFile, endpointsFiles, doc);
+swaggerAutogen(outputFile, endpointsFiles, doc).then(async () => {
+  await import('./routes'); // Your project's root file
+});

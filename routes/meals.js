@@ -12,10 +12,10 @@ routes.get("/", controller.getAll)
 
 routes.get("/:id", controller.getSingle)
 
-routes.post("/", mealValidation, controller.addMeal)
+routes.post("/", requiresAuth(), mealValidation, controller.addMeal)
 
-routes.put("/:id", mealValidation, controller.updateMeal)
+routes.put("/:id", requiresAuth(), mealValidation, controller.updateMeal)
 
-routes.delete("/:id", controller.deleteMeal)
+routes.delete("/:id",requiresAuth(),  controller.deleteMeal)
 
 module.exports = routes

@@ -14,10 +14,10 @@ routes.get("/",requiresAuth(), controller.getAll)
 
 routes.get("/:id", controller.getSingle)
 
-routes.post("/", requiresAuth(), validationResult, controller.addWorkout)
+routes.post("/", requiresAuth(), workoutValidation, controller.addWorkout)
 
-routes.put("/:id", workoutValidation, controller.updateWorkout)
+routes.put("/:id", requiresAuth(), workoutValidation, controller.updateWorkout)
 
-routes.delete("/:id", controller.deleteWorkout)
+routes.delete("/:id", requiresAuth(), controller.deleteWorkout)
 
 module.exports = routes

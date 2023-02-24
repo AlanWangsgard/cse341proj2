@@ -7,7 +7,7 @@ GET http://localhost:3000/workouts/63dc10e2c15c66c0fa507827
 POST http://localhost:3000/workouts HTTP/1.1
 content-type: application/json
 
-{"name": "crushers","primaryMuscle": "Tricep","secondaryMuscle": "none","timeToComplete": "10mins","sets": "3","reps": "10","equipment": "barbell/dumbell"}
+{"name": "crushers","primaryMuscle": "Tricep","secondaryMuscle": "","timeToComplete": "10mins","sets": "3","reps": "10","equipment": "barbell/dumbell"}
 
 ###
 PUT http://localhost:3000/workouts/63dc10e2c15c66c0fa507827 HTTP/1.1
@@ -63,12 +63,12 @@ content-type: application/json
 DELETE https://fitness-05k7.onrender.com/workouts/63dc10e2c15c66c0fa507827 HTTP/1.1
 
 ###
-POST http://localhost:3000/meals/meals HTTP/1.1
+POST http://localhost:3000/meals HTTP/1.1
 content-type: application/json
 
 {
   "name": "Cheeseburger",
-  "calories": "500",
+  "calories": "",
   "timeToMake": "15min",
   "size": "medium"
 }
