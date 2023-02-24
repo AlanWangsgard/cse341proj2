@@ -1,6 +1,7 @@
 const routes = require("express").Router()
 const controller = require("../controllers/meals")
 const {mealValidation} = require("../validator/validate")
+const { requiresAuth } = require('express-openid-connect');
 
 // const swaggerUi = require('swagger-ui-express');
 // const swaggerDocument = require('./swagger.json');
